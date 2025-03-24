@@ -3,9 +3,9 @@ from interactions import Client, Intents, SlashContext, OptionType, SlashCommand
 from dotenv import load_dotenv
 import os
 import json
-from logger import logger
-import logger as loggerClass
-import utils
+from scripts.logger import logger
+import scripts.logger as loggerClass
+import scripts.utils as utils
 
 load_dotenv()
 
@@ -196,6 +196,7 @@ async def about(ctx: SlashContext) -> None:
     loggerClass.log_command(ctx, f"Command 'embed' executed")
 
     embed = utils.generate_empty_embed(ctx, "A propos", "Bienvenue sur TramData, votre compilateur de donnée de voyage en tram préféré !", "\nCe serait étrange d'en avoir un autre en tête tho")
+    embed.add_field("Repository", "[TramData](https://github.com/Frata23/TramData)")
 
     await ctx.send(embed=embed)
 
