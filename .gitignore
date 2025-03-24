@@ -1,6 +1,7 @@
-./__pycache__
-./tests
+__pycache__/*
+tests/*
+spreadsheet/*
+
 .env
-./
 bot_entries.json
 bot_logs.json
