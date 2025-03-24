@@ -1,0 +1,6 @@
+./__pycache__
+./tests
+.env
+./
+bot_entries.json
+bot_logs.json
