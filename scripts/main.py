@@ -3,9 +3,9 @@ from interactions import Client, Intents, SlashContext, OptionType, SlashCommand
 from dotenv import load_dotenv
 import os
 import json
-from scripts.logger import logger
-import scripts.logger as loggerClass
-import scripts.utils as utils
+from logger import logger
+import logger as loggerClass
+import utils as utils
 
 load_dotenv()
 

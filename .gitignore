@@ -5,3 +5,4 @@ spreadsheet/*
 .env
 bot_entries.json
 bot_logs.json
+process.pid
