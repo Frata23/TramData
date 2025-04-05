@@ -2,8 +2,8 @@ import json
 import datetime
 from interactions import Embed, SlashContext
 
-def get_model_from_id(id):
-    if id > 60:
+def get_model_from_id(id_tram):
+    if id_tram > 60:
         return 302
     else:
         return 301
@@ -29,7 +29,7 @@ def get_models_stats():
 
     models = dict()
     for i in datas:
-        model=i['model']
+        model=int(i['model'])
 
         if model in models:
             models[model] +=1
@@ -43,12 +43,12 @@ def get_ids_stats():
 
     ids = dict()
     for i in datas:
-        id = i['id']
+        id_tram = i['id']
 
-        if id in ids:
-            ids[id] +=1
+        if id_tram in ids:
+            ids[id_tram] +=1
         else:
-            ids[id] = 1
+            ids[id_tram] = 1
 
     sorted_data = dict(sorted(ids.items(), key=lambda item: item[1], reverse=True))
     return sorted_data
@@ -77,24 +77,24 @@ def get_personnal_stats(*author_ids : int):
     models = dict()
     for i in filtered_data:
         line = i['line']
-        id = i['id']
-        model=i['model']
+        id_tram = i['id']
+        model= int(i['model'])
 
         if line in lines:
             lines[line] +=1
         else:
             lines[line] = 1
         
-        if id in ids:
-            ids[id] +=1
+        if id_tram in ids:
+            ids[id_tram] +=1
         else:
-            ids[id] = 1
+            ids[id_tram] = 1
 
         if model in models:
             models[model] +=1
         else:
-            models[model] = 1 
-        
+            models[model] = 1
+    sorted_data = dict(sorted(ids.items(), key=lambda item: item[1], reverse=True))
 
     result = {
         "total" : len(filtered_data),
@@ -102,7 +102,7 @@ def get_personnal_stats(*author_ids : int):
             "number":len(author_ids),
             "ids":author_ids,
         },
-        "ids" : ids,
+        "ids" : sorted_data,
         "lines" : lines,
         "models" : models,
     }

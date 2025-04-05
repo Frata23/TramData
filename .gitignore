@@ -2,6 +2,7 @@ scripts/__pycache__/*
 tests/*
 spreadsheet/*
 
+.idea
 .env
 bot_entries.json
 bot_logs.json
